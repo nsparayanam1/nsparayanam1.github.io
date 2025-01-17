@@ -1,1 +1,2 @@
-"# nsparayanam1.github.io" 
+# sudayagiri-github.io
+ Create a tool for allocating slokas with user input

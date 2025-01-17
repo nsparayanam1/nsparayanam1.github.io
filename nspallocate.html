@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>NityaStotraParayanam</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" href="nspallocate.css">
+  <script type = "text/javascript" src="nspallocate.js?v=13"></script>
+</head>
+<body onload="loadPeople()">
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>NSP Database</h1>      
+    <p>Shree Matre Namaha!</p>
+  </div>
+</div>
+
+<nav class="navbar navbar-light">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" style="background-color: teal;">
+        <span class="icon-bar" style="background-color: black;"></span>
+        <span class="icon-bar" style="background-color: black;"></span>
+        <span class="icon-bar" style="background-color: black;"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">NSP</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Documents</a></li>
+       <li><a href="nsp_lakshmi.html">Shri Lakshmi</a></li>
+		<li><a href="nsp_tiruppavai.html">Tiruppavai</a></li>
+       <li><a href="nsp_batch.html">Upcoming Batches</a></li>
+        <li><a href="nspattendance.html">Attendance</a></li>
+		<li><a href="nspallocate.html">Allocate NSP</a></li>
+      </ul>
+     </div>
+  </div>
+</nav>
+
+
+<!===============================MAIN==================================>
+
+<div class="container">
+<div class="row">
+	<!--Names-->
+	<div class="col-sm-3">
+	
+	<div class="row"> 
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="batchnumber"  style="font-family: Courier" placeholder="Batch Number e.g. LS1, LS2" required></input>
+		</div>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="satsangdate"  style="font-family: Courier" placeholder="Satsang date e.g. 2-Sep-2025 /1 PM IST" required></input>
+		</div>
+	</div>
+	  <label for="names" class="form-label">Enter Names</label>
+	  <br>
+	  <small><i>*Enter <strong>NSP</strong> as first name to allocate one portion once. (optional)</i></small>
+	  
+	  <textarea class="form-control" id="names" rows="15" style="font-family: Courier; margin: 5px 0 0 0 ">persons</textarea>
+	  <div class="row"> 
+		  <button type="button" accesskey="c" class="btn btn-danger" style="margin: 10px 5px 5px 10px;" onclick = "clearNames()">Clear</button>
+		  <button type="button" class="btn btn-danger" style="margin: 10px 5px 5px 10px;" onclick = "tempSave()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+	  </div>
+	</div>
+
+
+	<!--Allocation-->
+	<div class="col-sm-6">
+		<div class="row">
+			<button type="button" accesskey="a" class="btn btn-success" style="margin: 10px 5px 5px 10px;" onclick = "allocate('asis')">Allocate</button>
+			<button type="button" class="btn btn-success" style="margin: 10px 5px 5px 10px;" onclick = "allocate('random')">Alloc Randomly</button>
+			<!--<button type="button" class="btn btn-success" style="margin: 10px 5px 5px 10px;" onclick = "allocate('roll')">Alloc on-Roll</button>-->
+			
+			<button type="button" class="btn btn-success" style="margin: 10px 5px 5px 10px;" onclick = "allocate('shloka')">Alloc only Shloka</button>
+		</div>
+	  <label for="allocation" class="form-label">Allocation</label>
+	  <textarea class="form-control" id="allocation" rows="15" style="font-family: Courier; background: #e6ebe7"></textarea>
+	  <div class="row"> 
+		  <button type="button" class="btn btn-success btn-md" style="margin: 10px 5px 0px 10px;" onclick = "copyToClipboard('allocation')"><span class="glyphicon glyphicon-copy"></span> Copy Allocations</button> 
+		  <button type="button" class="btn btn-success btn-md" style="margin: 10px 5px 0px 10px;" onclick = "downloadCSV()"><span class="glyphicon glyphicon-download-alt"></span> Download CSV/XL</button> 
+	  </div>
+	</div>
+	
+	<!--Random Names-->
+	<div class="col-sm-3">
+		<div class="row">
+			<button type="button" class="btn btn-info" style="margin: 10px 5px 5px 10px;" onclick = "operateNames('random')">Randomize Names</button>
+		</div>
+		<label for="randomnames" class="form-label">Randomized Names</label>
+		<textarea class="form-control" id="randomnames" rows="15" style="font-family: Courier; background: #e6ebe7"></textarea>
+	  <div class="row"> 
+		  <button type="button" class="btn btn-info btn-md" style="margin: 10px 15px;" onclick = "copyToClipboard('randomnames')"><span class="glyphicon glyphicon-copy"></span> Copy Names</button> 
+	  </div>
+	</div>
+	
+</div>
+<br>
+<br>
+</div>
+
+<!===============================MAIN==================================>
+
+<footer class="container-fluid text-center">
+  <p>Copyright</p>  
+  <form class="form-inline">This is purely for educational purposes.
+  </form>
+</footer>
+
+</body>
+</html>
